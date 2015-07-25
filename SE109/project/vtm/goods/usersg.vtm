@@ -1,0 +1,23 @@
+CALL "vtm\5cgoods\5cshowgd.vtm"
+GOTOXY #64# #21#
+IFN GOODSID# GOODS@RECORDS# powsg-New:
+PRINTS "最新商品[BkSp]"
+GOTO powsg-New2:
+:powsg-New:
+PRINTS "      已为最新"
+:powsg-New2:
+GOTOXY #4# #21#
+SUB GOODSPREDA# #1# GOODSID#
+IFP GOODSPREDA# powsg-Pred:
+PRINTS "[Sp]上一条"
+GOTO powsg-Pred2:
+:powsg-Pred:
+PRINTS "无上一条"
+:powsg-Pred2:
+
+IFN GOODSID# #0# powsg-Return:
+STON GAMOUNT$ GAMOUNT#
+IFN GAMOUNT# #0# powsg-Return:
+GOTOXY #4# #18#
+PRINTS "[R]订购该商品"
+:powsg-Return:

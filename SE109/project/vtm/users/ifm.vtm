@@ -1,0 +1,172 @@
+:ifm-Reprint:
+
+CALL "vtm\5Cusers\5Cloadifm.vtm"
+COMMAND "CLS" 
+
+GOTOXY #10# #1#
+PRINTS "修改信息"
+
+GOTOXY #1# #3#
+PRINTS "   用户名："
+GOTOXY #13# #3#
+PRINTS USERNAME$
+
+GOTOXY #20# #3#
+IFS USERTYPE$ "A" ifm-Admin:
+IFS USERTYPE$ "P" ifm-Powered:
+IFS USERTYPE$ "U" ifm-User:
+:ifm-Admin:
+PRINTS "管理员"
+GOTO ifm-tFinish:
+:ifm-Powered:
+PRINTS "卖家"
+GOTO ifm-tFinish:
+:ifm-User:
+PRINTS "买家"
+GOTO ifm-tFinish:
+:ifm-tFinish:
+
+GOTOXY #1# #5#
+PRINTS "[P]密码：  **********"
+
+GOTOXY #1# #7#
+PRINTS "[N]姓名：  "
+PRINTS RNAME$
+
+GOTOXY #1# #9#
+IFC GENDER$ "M" ifm-Gender-CM:
+PRINTS "[G]性别：　女"
+GOTO ifm-Gender-Next:
+:ifm-Gender-CM:
+PRINTS "[G]性别：　男"
+:ifm-Gender-Next:
+
+GOTOXY #1# #11#
+PRINTS "[B]生日：  "
+STON BIRTHDAY$ BIRTHDAY#
+DIVL BIRYYYY# BIRTHDAY# #10000#
+PRINTN BIRYYYY#
+PRINTS " 年 "
+DIVL BIRMM# BIRTHDAY# #100#
+DIVH BIRMM# BIRMM# #100#
+NTOS BIRMM# BIRMM$ #2#
+PRINTS BIRMM$
+PRINTS " 月 "
+DIVH BIRDD# BIRTHDAY# #100#
+NTOS BIRDD# BIRDD$ #2#
+PRINTS BIRDD$
+PRINTS " 日"
+
+GOTOXY #1# #13#
+PRINTS "[A]地址：  "
+PRINTS ADDRESS$
+
+GOTOXY #1# #15#
+PRINTS "[T]电话：  "
+PRINTS TEL$
+
+GOTOXY #1# #17#
+PRINTS "[K]关注：  "
+PRINTS KEYWORD$
+
+GOTOXY #1# #19#
+PRINTS "[D]删除账户"
+
+
+CALL "vtm\5ccopyri~1.vtm"
+
+GOTOXY #69# #0#
+PRINTS "返回[Esc]"
+
+:ifm-Chose:
+GETC Chose!
+UPCASE Chose!
+IFC Chose!  "P"  ifm-P:
+IFC Chose!  "G"  ifm-G:
+IFC Chose!  "B"  ifm-B:
+IFC Chose!  "A"  ifm-A:
+IFC Chose!  "K"  ifm-K:
+IFC Chose!  "T"  ifm-T:
+IFC Chose!  "D"  ifm-D:
+IFC Chose!  "N"  ifm-N:
+IFC Chose! "\1B" ifm-Exit:
+GOTO ifm-Chose:
+
+:ifm-P:
+COMMAND "CLS"
+CALL "vtm\5cusers\5ccheckp.vtm"
+IFP CHECKP# ifm-P2:
+GOTOXY #2# #7#
+PRINTS "密码错误，按任意键返回……"
+PAUSE
+GOTO ifm-Reprint:
+:ifm-P2:
+COMMAND "CLS"
+CALL "vtm\5cusers\5creg-3.vtm"
+FTOR USER@ USERDATA$ #3# REGPASSWORD1$
+GOTO ifm-Save:
+:ifm-G:
+COMMAND "CLS"
+LETS REGENDER$ GENDER$
+CALL "vtm\5cusers\5creg-4.vtm"
+FTOR USER@ USERDATA$ #4# REGENDER$
+GOTO ifm-Save:
+:ifm-B:
+COMMAND "CLS"
+LETS REGDATE$ BIRTHDAY$
+CALL "vtm\5cusers\5creg-5.vtm"
+FTOR USER@ USERDATA$ #5# REGDATE$
+GOTO ifm-Save:
+:ifm-A:
+COMMAND "CLS" 
+LETS REGADDR$ ADDRESS$
+CALL "vtm\5cusers\5creg-6.vtm"
+FTOR USER@ USERDATA$ #6# REGADDR$
+GOTO ifm-Save:
+:ifm-K:
+COMMAND "CLS" 
+LETS REGKW$ KEYWORD$
+CALL "vtm\5cusers\5creg-7.vtm"
+FTOR USER@ USERDATA$ #7# REGKW$
+GOTO ifm-Save:
+:ifm-T:
+COMMAND "CLS" 
+LETS REGTEL$ TEL$
+CALL "vtm\5cusers\5creg-8.vtm"
+FTOR USER@ USERDATA$ #9# REGTEL$
+GOTO ifm-Save:
+:ifm-D:
+COMMAND "CLS"
+CALL "vtm\5cusers\5ccheckp.vtm"
+IFP CHECKP# ifm-D2:
+GOTOXY #2# #7#
+PRINTS "密码错误，按任意键返回……"
+PAUSE
+GOTO ifm-Reprint:
+:ifm-D2:
+COMMAND "CLS"
+GOTOXY #2# #5#
+PRINTS "删除操作不可撤销！  确认[Ent]  取消[Esc]"
+:ifm-D3:
+GETC Chose!
+IFC Chose! "\1B" ifm-Reprint:
+IFC Chose! "\0D" ifm-D4:
+GOTO ifm-D3:
+:ifm-D4:
+LETC USERDATA$ "*"
+PUTR USER@ USERID# USERDATA$
+CALL "vtm\5cusers\5cloging.vtm"	
+GOTOF "vtm\5cmainpage.vtm"
+:ifm-N:
+COMMAND "CLS" 
+LETS RRNAME$ RNAME$
+CALL "vtm\5cusers\5creg-9.vtm"
+FTOR USER@ USERDATA$ #10# RRNAME$
+GOTO ifm-Save:
+:ifm-Save:
+PUTR USER@ USERID# USERDATA$
+GOTO ifm-Reprint:
+
+:ifm-Exit:
+
+

@@ -1,0 +1,34 @@
+model Family
+
+-- classes
+
+class Person
+attributes
+  age : Integer
+end
+
+class Man < Person
+end
+
+class Woman < Person
+end
+
+-- associations
+
+association spouse between
+  Man[0..1] role husband;
+  Woman[0..1] role wife;
+end
+
+association offspring between
+  Person[0..2] role parents;
+  Person[*] role children;
+end
+
+-- constraints
+
+constraints
+
+context Person
+ inv YoungerThanParents:
+    parents->forAll(p | p.age > self.age)

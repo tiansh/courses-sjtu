@@ -1,0 +1,47 @@
+:guest-Reprint:
+LETN GOODSID# GOODS@RECORDS#
+
+:guest-Reprint2:
+COMMAND "CLS"
+PRINTS "  访客"
+GOTOXY #51# #0# 
+PRINTS "退出[X] | 注册[R] | 登入[I]"
+GOTOXY #2# #4#
+PRINTS "   最新商品："
+
+CALL "vtm\5cgoods\5cgstsg.vtm"
+GOTOXY #0# #0#
+
+:guest-Chose:
+GETC Chose!
+UPCASE Chose!
+IFC Chose!  "X"  guest-Exit:
+IFC Chose!  "R"  guest-Reg:
+IFC Chose!  "I"  guest-Login:
+IFC Chose! "\08" guest-New:
+IFC Chose!  " "  guest-Old:
+GOTO guest-Chose:
+
+
+:guest-Exit:
+GOTO guest-Return:
+
+:guest-Reg:
+CALL "vtm\5cusers\5creg.vtm"
+GOTOF "vtm\5cmainpage.vtm"
+
+:guest-Login:
+CALL "vtm\5cusers\5clogin.vtm"
+GOTOF "vtm\5cmainpage.vtm"
+
+:guest-New:
+IFN GOODSID# GOODS@RECORDS# guest-Chose:
+LETN GOODSID# GOODS@RECORDS#
+GOTO guest-Reprint2:
+:guest-Old:
+SUB GOODSPREDA# #1# GOODSID#
+IFP GOODSPREDA# guest-Chose:
+SUB GOODSID# GOODSID# #1#
+GOTO guest-Reprint2:
+
+:guest-Return:

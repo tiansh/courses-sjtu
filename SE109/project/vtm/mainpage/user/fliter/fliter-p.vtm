@@ -1,0 +1,25 @@
+GOTOXY #4# #17#
+
+PRINTS "[F]筛选器：  "
+LETN FLITERON# #0#
+
+IFP FTYPE# fliter-p-1:
+GOTO fliter-p-1-2:
+:fliter-p-1:
+PRINTS "分类√  "
+LETN FLITERON# #1#
+:fliter-p-1-2:
+
+IFP FFACTORY# fliter-p-2:
+GOTO fliter-p-2-2:
+:fliter-p-2:
+PRINTS "厂商√  "
+LETN FLITERON# #1#
+:fliter-p-2-2:
+
+IFN FLITERON# #0# fliter-p-3:
+GOTO fliter-p-3-2:
+:fliter-p-3:
+PRINTS "关闭"
+LETN FLITERON# #3#
+:fliter-p-3-2:

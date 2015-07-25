@@ -1,0 +1,76 @@
+LETN 特权模式# #1#
+
+:admin-Reprint:
+
+COMMAND "CLS"
+PRINTS "  管理员"
+LENS USERNAME$ CorX#
+SUB CorX# #54# CorX#
+GOTOXY CorX# #0#
+PRINTS USERNAME$
+GOTOXY #55# #0# 
+PRINTS "| 修改密码[P] | 登出[O]"
+CALL "vtm\5ccopyri~1.vtm"
+
+GOTOXY #16# #4#
+PRINTS "以其他用户身份登录"
+:admin-Reinput:
+GOTOXY #6# #6#
+PRINTS "[N]用户名：                "
+GOTOXY #6# #8#
+PRINTS "[I]用户ID：          "
+
+:admin-Input:
+GETC Chose!
+UPCASE Chose!
+IFC Chose! "N" admin-UN:
+IFC Chose! "I" admin-UI:
+IFC Chose! "P" admin-PW:
+IFC Chose! "O" admin-LO:
+GOTO admin-Input:
+
+:admin-UN:
+GOTOXY #6# #8#
+PRINTS "           "
+GOTOXY #6# #6#
+PRINTS "   用户名："
+LETS LUSERNAME$ ""
+INPUTS LUSERNAME$ USER@USERNAME$LEN# Chose!
+LETN LUSERID# #1#
+FIND USER@ LUSERNAME$ #1# LUSERID#
+IFP LUSERID# admin-Login:
+GOTO admin-Reinput:
+
+:admin-UI:
+GOTOXY #6# #6#
+PRINTS "           "
+GOTOXY #6# #8#
+PRINTS "   用户ID："
+LETN LUSERID# #0#
+INPUTN LUSERID#
+SUB CHECK# USER@RECORDS# LUSERID#
+ADD CHECK# CHECK# #1#
+IFP CHECK# admin-Login:
+GOTO admin-Reinput:
+
+:admin-Login:
+GETR USER@ LUSERID# LUSEREC$
+IFC LUSEREC$ "*" login-Del:
+LETN USERID# LUSERID#
+CALL "vtm\5Cusers\5Cloadifm.vtm"
+GOTOF "vtm\5cmainpage.vtm"
+
+:login-Del:
+GOTOXY #6# #10#
+PRINTS "该用户已经被删除。"
+GOTO admin-Reinput:
+
+:admin-PW:
+COMMAND "CLS"
+CALL "vtm\5cusers\5creg-3.vtm"
+FTOR USER@ USERDATA$ #3# REGPASSWORD1$
+PUTR USER@ USERID# USERDATA$
+GOTO admin-Reprint:
+:admin-LO:
+CALL "vtm\5Cusers\5Cloging.vtm"
+GOTOF "vtm\5Cmainpage.vtm"

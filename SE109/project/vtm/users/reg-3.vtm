@@ -1,0 +1,25 @@
+:reg-3-Reinput:
+GOTOXY #4# #6#
+PRINTS "（密码必须为8-16位，且不能含有特殊字符）"
+GOTOXY #4# #5#
+PRINTS "密码：                                          "
+GOTOXY #13# #5#
+LETS REGPASSWORD1$ ""
+INPUTP REGPASSWORD1$
+GOTOXY #4# #5#
+PRINTS "重输：                                          "
+GOTOXY #13# #5#
+LETS REGPASSWORD2$ ""
+INPUTP REGPASSWORD2$
+IFS REGPASSWORD1$ REGPASSWORD2$ reg-3-Finish:
+GOTOXY #4# #6#
+PRINTS "              两次输入不相同   确定[Ent]             "
+GOTOXY #0# #0#
+:reg-GetEnt:
+GETC Chose!
+IFC Chose! "\0d" reg-3-Reinput:
+GOTO reg-GetEnt:
+:reg-3-Finish:
+FTOR USER@ RegRec$ #3# REGPASSWORD1$
+GOTOXY #4# #5#
+PRINTS "密码：\0A                                             "

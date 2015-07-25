@@ -1,0 +1,8 @@
+GOTOXY #6# #3#
+PRINTS "ÉÌÆ·Ãû£º"
+LETS INAME$ ""
+:addg-Name:
+INPUTS INAME$ GOODS@GOODSN$LEN# Chose!
+LENS INAME$ Len#
+IFN Len# #0# addg-Name:
+FTOR GOODS@ ADDGOODS$ #1#  INAME$

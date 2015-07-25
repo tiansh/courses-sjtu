@@ -1,0 +1,30 @@
+COMMAND "CLS"
+COMMAND "TYPE \22doc\5Cagreem~1.txt\22 |more"
+PRINTS "   同意并注册为买家[U]    同意并注册为卖家[P]    不同意[Esc]    已注册[I]"
+
+
+:reg-Chose:
+GETC Chose!
+UPCASE Chose!
+IFC Chose! "U" reg-User:
+IFC Chose! "P" reg-Powered:
+IFC Chose! "I" reg-Exit:
+IFC Chose! "\1B" reg-Exit:
+GOTO reg-Chose:
+
+'U
+:reg-User:
+LETC REGTYPE! "U"
+FTOR USER@ RegRec$ #2# "U"
+GOTO reg-Reg:
+'P
+:reg-Powered:
+LETC REGTYPE! "P"
+FTOR USER@ RegRec$ #2# "P"
+GOTO reg-Reg:
+
+
+'U&P
+:reg-Reg:
+
+:reg-Exit:

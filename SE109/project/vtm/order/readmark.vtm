@@ -1,0 +1,50 @@
+LETS SCOREM[#0#]$ "¡î¡î¡î¡î¡î"
+LETS SCOREM[#1#]$ "¡ï¡î¡î¡î¡î"
+LETS SCOREM[#2#]$ "¡ï¡ï¡î¡î¡î"
+LETS SCOREM[#3#]$ "¡ï¡ï¡ï¡î¡î"
+LETS SCOREM[#4#]$ "¡ï¡ï¡ï¡ï¡î"
+LETS SCOREM[#5#]$ "¡ï¡ï¡ï¡ï¡ï"
+
+LETN ISCORE# #3#
+:readmark-reprint:
+GOTOXY #34# #18#
+PRINTS "ÆÀ·Ö£º  - ¡¡¡¡¡¡¡¡¡¡ +"
+GOTOXY #44# #18#
+PRINTS SCOREM[ISCORE#]$
+GOTOXY #58# #18#
+PRINTN ISCORE#
+
+:readmark-Chose:
+GETC Chose!
+IFC Chose!  "+"  readmark-Add:
+IFC Chose!  "-"  readmark-Sub:
+IFC Chose!  "0"  readmark-n:
+IFC Chose!  "1"  readmark-n:
+IFC Chose!  "2"  readmark-n:
+IFC Chose!  "3"  readmark-n:
+IFC Chose!  "4"  readmark-n:
+IFC Chose!  "5"  readmark-n:
+IFC Chose! "\0D" readmark-Finish:
+GOTO readmark-Chose:
+:readmark-Add:
+IFN ISCORE# #5# readmark-reprint:
+ADD ISCORE# ISCORE# #1#
+GOTO readmark-reprint:
+:readmark-Sub:
+IFN ISCORE# #0# readmark-reprint:
+SUB ISCORE# ISCORE# #1#
+GOTO readmark-reprint:
+:readmark-n:
+CTON Chose! Chose#
+SUB ISCORE# Chose# $30#
+GOTO readmark-reprint:
+:readmark-Finish:
+GOTOXY #34# #18#
+PRINTS "ÆÀ·Ö£º    ¡¡¡¡¡¡¡¡¡¡  "
+GOTOXY #44# #18#
+PRINTS SCOREM[ISCORE#]$
+GOTOXY #58# #18#
+PRINTN ISCORE#
+NTOS ISCORE# ISCORE$ #1#
+:readmark-Rtn:
+

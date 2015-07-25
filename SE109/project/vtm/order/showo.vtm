@@ -1,0 +1,51 @@
+IFN ORDERID# #0# showo-None:
+
+LETS SCOREM[#0#]$ "☆☆☆☆☆"
+LETS SCOREM[#1#]$ "★☆☆☆☆"
+LETS SCOREM[#2#]$ "★★☆☆☆"
+LETS SCOREM[#3#]$ "★★★☆☆"
+LETS SCOREM[#4#]$ "★★★★☆"
+LETS SCOREM[#5#]$ "★★★★★"
+
+
+CALL "vtm\5corder\5cloado.vtm"
+CALL "vtm\5cgoods\5cshowgd.vtm"
+
+GOTOXY #8# #5#
+IFC ORDERR$ "*" showo-C:
+GOTO showo-Cc:
+:showo-C:
+PRINTS "（该订单已取消）"
+:showo-Cc:
+
+GOTOXY #4# #17#
+PRINTS "买家：  "
+PRINTS 3USERNAME$
+
+GOTOXY #34# #17#
+PRINTS "日期：  "
+STON ODATE$ ODATE#
+PRINTN ODATE#
+
+GOTOXY #4# #18#
+PRINTS "数量：  "
+STON OOAMOUNT$ OOAMOUNT#
+PRINTN OOAMOUNT#
+
+GOTOXY #34# #18#
+PRINTS "评分：    　　　　　  "
+GOTOXY #44# #18#
+STON OSCORE$ OSCORE#
+PRINTS SCOREM[OSCORE#]$
+GOTOXY #58# #18#
+PRINTN OSCORE#
+GOTO showo-Return:
+
+:showo-None:
+
+GOTOXY #4# #6#
+PRINTS "暂无订购记录。"
+GOTO showo-Return:
+
+:showo-Return:
+

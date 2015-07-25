@@ -1,0 +1,4 @@
+GOTOXY #4# #11#
+PRINTS "…˙»’£∫ "
+INPUTD REGDATE$
+FTOR USER@ RegRec$ #5# REGDATE$

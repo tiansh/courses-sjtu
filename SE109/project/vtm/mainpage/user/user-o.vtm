@@ -1,0 +1,78 @@
+:user-o-Reprint:
+LETN GOODSID# GOODS@RECORDS#
+CALL "vtm\5cmainpage\5cuser\5cfliter\5cfliter-i.vtm"
+
+:user-o-Reprint2:
+COMMAND "CLS"
+PRINTS "  买家"
+LENS USERNAME$ CorX#
+SUB CorX# #54# CorX#
+GOTOXY CorX# #0#
+PRINTS USERNAME$
+GOTOXY #55# #0# 
+PRINTS "| 个人信息[I] | 登出[O]"
+CALL "vtm\5ccopyri~1.vtm"
+
+GOTOXY #4# #4#
+PRINTS "   最新商品："
+GOTOXY #4# #23#
+PRINTS "[U]我的订购"
+CALL "vtm\5cmainpage\5cuser\5cfliter\5cfliter-p.vtm"
+CALL "vtm\5cgoods\5cusersg.vtm"
+GOTOXY #0# #0#
+
+:user-o-Chose:
+GETC Chose!
+UPCASE Chose!
+IFC Chose!  "O"  user-o-Out:
+IFC Chose!  "R"  user-o-Order:
+IFC Chose!  "I"  user-o-Ifm:
+IFC Chose!  "U"  user-o-h:
+IFC Chose!  "F"  user-o-Fliter:
+IFC Chose! "\08" user-o-New:
+IFC Chose!  " "  user-o-Old:
+GOTO user-o-Chose:
+
+
+:user-o-Exit:
+GOTO user-o-Return: 
+
+:user-o-Ifm:
+CALL "vtm\5Cusers\5Cifm.vtm"
+GOTOF "vtm\5Cmainpage.vtm"
+
+:user-o-Out:
+CALL "vtm\5Cusers\5Cloging.vtm"
+GOTOF "vtm\5Cmainpage.vtm"
+
+:user-o-New:
+IFN GOODSID# GOODS@RECORDS# user-o-Chose:
+:user-o-New-u:
+LETN GOODSID# GOODS@RECORDS#
+ADD GOODSID# GOODSID# #1#
+:user-o-Old:
+LETN PGOODSID# GOODSID#
+:user-o-Old-i:
+IFN PGOODSID# #0# user-o-Old-f:
+SUB PGOODSID# PGOODSID# #1#
+IFN PGOODSID# #0# user-o-Old-f:
+CALL "vtm\5cmainpage\5cuser\5cfliter\5cfliter-k.vtm"
+IFN FILTERCK# #0# user-o-Old-i:
+:user-o-Old-f:
+LETN GOODSID# PGOODSID#
+GOTO user-o-Reprint2:
+
+:user-o-Fliter:
+CALL "vtm\5Cmainpage\5Cuser\5cfliter\5cfliter-c.vtm"
+GOTO user-o-New-u:
+
+:user-o-Order:
+IFN GOODSID# #0# user-o-Chose:
+CALL "vtm\5Corder\5Corder.vtm"
+GOTO user-o-Reprint2:
+
+:user-o-h:
+GOTOF "vtm\5Cmainpage\5Cuser\5Cuser-h.vtm"
+
+
+:user-o-Return:

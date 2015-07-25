@@ -1,0 +1,4 @@
+% Login As Guest
+LETN 特权模式# #0#
+LETN USERID# #1# ;#1# in USER@ AS GUEST(G)
+CALL "vtm\5Cusers\5Cloadifm.vtm"

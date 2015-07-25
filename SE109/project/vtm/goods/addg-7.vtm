@@ -1,0 +1,25 @@
+GOTOXY #6# #15#
+PRINTS "价格：  "
+:addg-Price:
+GOTOXY #6# #16#
+PRINTS "                                          "
+GOTOXY #12# #15#
+INPUTR IPRICE#
+IFP IPRICE# addg-Price-c:
+GOTOXY #6# #16#
+PRINTS "注意，该商品是免费的！  重输[R]  确定[Ent]"
+LETN IPRICE# #0#
+:addg-Price-Chose:
+GETC Chose!
+UPCASE Chose!
+IFC Chose! "R" addg-Price:
+IFC Chose! "\0D" addg-Price-F:
+GOTO addg-Price-Chose:
+:addg-Price-F:
+GOTOXY #6# #16#
+PRINTS "                                          "
+GOTOXY #12# #15#
+PRINTS "  免费！      "
+:addg-Price-c:
+NTOS IPRICE# IPRICE$ GOODS@PRICE$LEN#
+FTOR GOODS@ ADDGOODS$ #7#  IPRICE$

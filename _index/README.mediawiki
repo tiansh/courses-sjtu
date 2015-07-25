@@ -1,0 +1,5 @@
+== 索引 ==
+
+开卷考试索引
+
+索引排版的程序见 https://github.com/tiansh/exam-index-creator

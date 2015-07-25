@@ -1,0 +1,78 @@
+:ifm-Reprint:
+
+CALL "vtm\5Cusers\5Cloadifm2.vtm"
+
+COMMAND "CLS" 
+
+GOTOXY #10# #1#
+PRINTS "修改信息"
+
+GOTOXY #1# #3#
+PRINTS "   用户名："
+GOTOXY #13# #3#
+PRINTS USERNAME$
+
+GOTOXY #3# #1#
+IFS USERTYPE$ "A" ifm-Admin:
+IFS USERTYPE$ "P" ifm-Powered:
+IFS USERTYPE$ "U" ifm-User:
+:ifm-Admin:
+PRINTS "管理员"
+:ifm-Powered:
+PRINTS "卖家"
+:ifm-User:
+PRINTS "买家"
+:ifm-tFinish:
+
+GOTOXY #1# #5#
+PRINTS "   密码：  **********"
+GOTOXY #13# #5#
+
+GOTOXY #1# #7#
+IFC GENDER$ "M" ifm-Gender-CM:
+PRINTS "   性别：　女"
+GOTO ifm-Gender-Next:
+:ifm-Gender-CM:
+PRINTS "   性别：　男"
+:ifm-Gender-Next:
+
+GOTOXY #1# #9#
+PRINTS "   生日：  "
+STON BIRTHDAY$ BIRTHDAY#
+DIVL BIRYYYY# BIRTHDAY# #10000#
+PRINTN BIRYYYY#
+PRINTS " 年 "
+DIVL BIRMM# BIRTHDAY# #100#
+DIVH BIRMM# BIRMM# #100#
+NTOS BIRMM# BIRMM$ #2#
+PRINTS BIRMM$
+PRINTS " 月 "
+DIVH BIRDD# BIRTHDAY# #100#
+NTOS BIRDD# BIRDD$ #2#
+PRINTS BIRDD$
+PRINTS " 日"
+
+GOTOXY #1# #11#
+PRINTS "   地址：  "
+PRINTS ADDRESS$
+
+GOTOXY #1# #13#
+PRINTS "   电话：  "
+PRINTS TEL$
+
+GOTOXY #1# #15#
+PRINTS "   关注：  "
+PRINTS KEYWORD$
+
+CALL "vtm\5ccopyri~1.vtm"
+
+GOTOXY #69# #0#
+PRINTS "返回[Esc]"
+
+:ifm-Chose:
+GETC Chose!
+UPCASE Chose!
+IFC Chose! "\1B" ifm-Exit:
+GOTO ifm-Chose:
+
+:ifm-Exit:

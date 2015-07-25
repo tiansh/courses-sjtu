@@ -1,0 +1,21 @@
+LETS RegRec$ " "
+CALL "vtm\5cusers\5creg-0.vtm"
+CALL "vtm\5cusers\5creg-1.vtm"
+IFC Chose! "\1B" reg-c-Exit:
+IFC Chose!  "I"  reg-c-Login:
+COMMAND "CLS"
+GOTOXY #10# #1#
+PRINTS "×¢²áÓÃ»§"
+LETS RUSERNAME$ ""	CALL "vtm\5cusers\5creg-2.vtm"
+			CALL "vtm\5cusers\5creg-3.vtm"
+LETS RRNAME$ ""   	CALL "vtm\5cusers\5creg-9.vtm"
+LETC REGENDER$ "U"	CALL "vtm\5cusers\5creg-4.vtm"
+CALL "vtm\5cusers\5creg-5.vtm"
+LETS REGADDR$ ""	CALL "vtm\5cusers\5creg-6.vtm"
+LETS REGTEL$ "" 	CALL "vtm\5cusers\5creg-8.vtm"
+
+CALL "vtm\5cusers\5creg-7.vtm"
+PUTR USER@ #0# RegRec$
+:reg-c-Login:
+GOTOF "vtm\5cusers\5clogin.vtm"
+:reg-c-Exit:

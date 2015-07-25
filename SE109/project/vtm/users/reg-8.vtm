@@ -1,0 +1,4 @@
+GOTOXY #4# #15#
+PRINTS "µç»°£º  "
+INPUTS REGTEL$ USER@TEL$LEN# Chose!
+FTOR USER@ RegRec$ #9# REGTEL$

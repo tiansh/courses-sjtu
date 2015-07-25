@@ -1,0 +1,49 @@
+CALL "vtm\5cusers\5creg-2-c.vtm"
+GOTOXY #4# #3#
+PRINTS "用户名："
+:reg-2-Input:
+GOTOXY #13# #3#
+INPUTS RUSERNAME$ USER@USERNAME$LEN# Chose!
+LENS RUSERNAME$ USERNAMEL#
+SUB USERNAMEL# USERNAMEL# #5#
+IFP USERNAMEL# reg-2-Checklen2:
+GOTOXY #0# #5#
+PRINTS "       用户名至少6个字符   确定[Ent]"
+:reg-GetEnt:
+GETC Chose!
+IFC Chose! "\0d" reg-2-GetEntE:
+GOTO reg-GetEnt: 
+:reg-2-GetEntE:
+CALL "vtm\5cusers\5creg-2-c.vtm"
+GOTO reg-2-Input:
+:reg-2-Checklen2:
+LETN REGUSERID# #1#
+FIND USER@ RUSERNAME$ #1# REGUSERID#
+GOTOXY #4# #4#
+IFN REGUSERID# #0# reg-2-Able:
+PRINTS "对不起，该用户名已经被注册。
+　　　　　　确定[Ent]      "
+:reg-GetEnt2:
+GETC Chose!
+IFC Chose! "\0d" reg-2-Reinput:
+GOTO reg-GetEnt2: 
+
+:reg-2-Able:
+PRINTS "该用户名可以注册
+　　确定[Ent] 重选[R]                 "
+GOTOXY #0# #0#
+:reg-Getc:
+GETC Chose!
+UPCASE Chose!
+IFC Chose! "\0d" reg-2-Finish:
+IFC Chose! "R" reg-2-Reinput:
+GOTO reg-Getc:
+
+:reg-2-Reinput:
+CALL "vtm\5cusers\5creg-2-c.vtm"
+GOTO reg-2-Input:
+:reg-2-Finish:
+GOTOXY #4# #0#
+CALL "vtm\5cusers\5creg-2-c.vtm"
+FTOR USER@ RegRec$ #1# RUSERNAME$
+:reg-2-Exit:

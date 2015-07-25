@@ -1,0 +1,13 @@
+WHEREXY CorX# CorY#
+LETN TotalLen# #0#
+PRINTS GNAME$
+ADD CorX# CorX# #40#
+GOTOXY CorX# CorY#
+STON GPRICE$ GPRICE#
+PRINTR GPRICE#
+STON GAMOUNT$ GAMOUNT#
+IFP GAMOUNT# showgn-Finish:
+ADD CorX# CorX# #20#
+GOTOXY CorX# CorY#
+PRINTS "( €Û¿)"
+:showgn-Finish:

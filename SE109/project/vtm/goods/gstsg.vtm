@@ -1,0 +1,20 @@
+CALL "vtm\5cgoods\5cshowgd.vtm"
+GOTOXY #64# #21#
+IFN GOODSID# GOODS@RECORDS# powsg-New:
+PRINTS "回到最新[BkSp]"
+GOTO powsg-New2:
+:powsg-New:
+PRINTS "      已为最新"
+:powsg-New2:
+GOTOXY #4# #21#
+SUB GOODSPREDA# #1# GOODSID#
+IFP GOODSPREDA# powsg-Pred:
+PRINTS "[Sp]上一条"
+GOTO powsg-Pred2:
+:powsg-Pred:
+PRINTS "无上一条"
+:powsg-Pred2:
+
+GOTOXY #4# #19#
+PRINTS "访客不能订购商品，如欲订购商品，请先注册[R]或登入[I]。"
+

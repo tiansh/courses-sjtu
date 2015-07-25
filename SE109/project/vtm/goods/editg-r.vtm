@@ -1,0 +1,6 @@
+GOTOXY #12# #14#
+PRINTS "                                                                 "
+GOTOXY #12# #14#
+INPUTS IREMARK$ GOODS@REMARK$LEN# Chose!
+FTOR GOODS@ GOODSDATA$ #13# IREMARK$
+PUTR GOODS@ GOODSID# GOODSDATA$

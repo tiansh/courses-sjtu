@@ -1,0 +1,23 @@
+CALL "vtm\5cgoods\5cshowgd.vtm"
+GOTOXY #64# #21#
+IFN GOODSID# LASTOP# powsg-New:
+PRINTS "回到最新[BkSp]"
+GOTO powsg-New2:
+:powsg-New:
+PRINTS "      已为最新"
+:powsg-New2:
+STON GAPRED$ GAPRED#
+GOTOXY #4# #21#
+IFP GAPRED# powsg-Pred:
+PRINTS "无上一条"
+GOTO powsg-Pred2:
+:powsg-Pred:
+PRINTS "[Sp]上一条"
+:powsg-Pred2:
+
+IFN GOODSID# #0# powsg-no:
+GOTOXY #1# #13#
+PRINTS "[M]"
+GOTOXY #1# #14#
+PRINTS "[R]"
+:powsg-no:

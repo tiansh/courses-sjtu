@@ -1,0 +1,69 @@
+:powered-Reprint:
+STON GLORDER$ GLORDER#
+LETN ORDERID# GLORDER#
+
+:powered-Reprint2:
+COMMAND "CLS"
+PRINTS "  卖家"
+LENS USERNAME$ CorX#
+SUB CorX# #54# CorX#
+GOTOXY CorX# #0#
+PRINTS USERNAME$
+GOTOXY #55# #0# 
+PRINTS "| 个人信息[I] | 登出[O]"
+
+GOTOXY #4# #23#
+PRINTS "[G]我的商品"
+GOTOXY #4# #4#
+PRINTS "   订购信息："
+
+CALL "vtm\5ccopyri~1.vtm"
+CALL "vtm\5corder\5cpowso.vtm"
+
+
+:powered-Chose:
+GOTOXY #0# #0#
+GETC Chose!
+UPCASE Chose!
+IFC Chose!  "O"  powered-Out:
+IFC Chose!  "I"  powered-Ifm:
+IFC Chose!  "A"  powered-Add:
+IFC Chose!  "G"  powered-Goods:
+IFC Chose! "\08" powered-New:
+IFC Chose!  " "  powered-Old:
+GOTO powered-Chose:
+
+
+:powered-Exit:
+GOTO powered-Return: 
+
+:powered-Ifm:
+CALL "vtm\5Cusers\5Cifm.vtm"
+GOTOF "vtm\5Cmainpage.vtm"
+
+:powered-Out:
+CALL "vtm\5Cusers\5Cloging.vtm"
+GOTOF "vtm\5Cmainpage.vtm"
+
+:powered-Add:
+CALL "vtm\5Cgoods\5Caddg.vtm"
+GOTO powered-Reprint:
+
+:powered-New:
+STON GLORDER$ GLORDER#
+IFN GOODSID# GLORDER# powered-Chose:
+LETN ORDERID# GLORDER#
+GOTO powered-Reprint2:
+:powered-Old:
+STON OGPRED$ OGPRED#
+IFP OGPRED# powered-Old2:
+GOTO powered-Chose:
+:powered-Old2:
+LETN ORDERID# OGPRED#
+GOTO powered-Reprint2:
+
+
+:powered-Goods:
+GOTOF "vtm\5Cmainpage\5Cpowered\5Cpowered-g.vtm"
+
+:powered-Return:

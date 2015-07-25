@@ -1,0 +1,18 @@
+LETN FILTERCK# #1#
+GETR GOODS@ PGOODSID# PGOODSDATA$
+
+IFN FTYPE# #0# fliter-k-1:
+RTOF GOODS@ PGOODSDATA$ #2#  PGTYPE$
+IFS PGTYPE$ FTYPE$ fliter-k-1:
+LETN FILTERCK# #0#
+GOTO fliter-k-r:
+:fliter-k-1:
+
+IFN FFACTORY# #0# fliter-k-2:
+RTOF GOODS@ PGOODSDATA$ #5#  PFACTORY$
+IFS PFACTORY$ FFACTORY$ fliter-k-2:
+LETN FILTERCK# #0#
+GOTO fliter-k-r:
+:fliter-k-2:
+
+:fliter-k-r:

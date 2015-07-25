@@ -1,0 +1,26 @@
+COMMAND "CLS"
+
+LETS ADDGOODS$ " "
+
+GOTOXY #12# #1#
+PRINTS "ÃÌº”…Ã∆∑"
+
+CALL "vtm\5cgoods\5caddg-1.vtm"
+CALL "vtm\5cgoods\5caddg-2.vtm"
+CALL "vtm\5cgoods\5caddg-3.vtm"
+CALL "vtm\5cgoods\5caddg-4.vtm"
+CALL "vtm\5cgoods\5caddg-5.vtm"
+CALL "vtm\5cgoods\5caddg-6.vtm"
+CALL "vtm\5cgoods\5caddg-7.vtm"
+CALL "vtm\5cgoods\5caddg-8.vtm"
+CALL "vtm\5cgoods\5caddg-9.vtm"
+
+FTOR GOODS@ ADDGOODS$ #9#  USERID$
+FTOR GOODS@ ADDGOODS$ #10# LASTOP$
+FTOR GOODS@ ADDGOODS$ #11# "         0"
+FTOR GOODS@ ADDGOODS$ #12# "         0"
+FTOR GOODS@ ADDGOODS$ #14# "         0"
+PUTR GOODS@ #0# ADDGOODS$
+NTOS GOODS@RECORDS# LASTOP$ USER@LASTOP$LEN#
+FTOR USER@ USERDATA$ #8# LASTOP$
+PUTR USER@ USERID# USERDATA$

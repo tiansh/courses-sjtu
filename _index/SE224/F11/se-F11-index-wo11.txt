@@ -1,0 +1,409 @@
+设计工程	5-1:1
+设计 步骤	5-1:4
+架构设计	5-1:5
+概要设计	5-1:5
+architecture design	5-1:5
+架构风格	5-1:5
+architecture style	5-1:5
+设计模式	5-1:5
+design pattern	5-1:5
+质量因素 架构设计	5-1:6
+建筑风格	5-2:2
+架构风格	5-3:4
+模块化	5-3:5
+接口设计	5-3:6
+interface design	5-3:6
+用户界面	5-3:6
+架构 评价	5-4:1
+架构 重要性	5-4:2
+详细设计	5-4:3
+构件级设计	5-4:3
+抽象 (设计)	5-4:5
+abstraction	5-4:5
+数据抽象	5-4:6
+Data Abstraction	5-4:6
+过程抽象	5-5:1
+Procedure Abstraction	5-5:1
+分解	5-5:3
+模块	5-5:4
+decomposition	5-5:4
+modularity	5-5:4
+module	5-5:4
+模块化	5-5:4
+信息隐藏	5-5:5
+Information Hiding	5-5:5
+模块独立	5-5:6
+内聚	5-6:1
+耦合	5-6:4
+cohesion	5-6:1
+coupling	5-6:4
+高内聚	5-6:3
+低耦合	5-6:5
+质量要求 设计	5-7:1
+设计 质量要求	5-7:1
+坏味道	5-7:2
+僵化性	5-7:2
+Reigidity	5-7:2
+脆弱性	5-7:2
+Fragility	5-7:2
+牢固性	5-7:2
+Immobility	5-7:2
+粘滞性	5-7:3
+Visosity	5-7:3
+不必要的复杂性	5-7:4
+复杂性	5-7:4
+Needless Complexity	5-7:4
+Complexity	5-7:4
+不必要的重复	5-7:4
+重复	5-7:4
+Needless Repeatition	5-7:4
+Repetition	5-7:4
+晦涩性	5-7:4
+Opacity	5-7:4
+设计复用	5-7:6
+Design Reuse	5-7:6
+模式	5-8:1
+Pattern	5-8:1
+软件模式	5-8:2
+Architectural Pattern	5-8:3
+Design Pattern	5-8:3
+Idiom	5-8:3
+架构模式	5-8:3
+设计模式	5-8:3
+成例	5-8:3
+分层	5-8:4
+Layers	5-8:4
+Blackboard	5-8:4
+黑板	5-8:4
+Broker模式	5-8:4
+分布式系统	5-8:4
+Distributed System	5-8:4
+架构风格	5-8:4
+交互系统	5-8:5
+Interactive System	5-8:5
+MVC	5-8:5
+Model - View - Controller	5-8:5
+Presentation - abstraction - control 	5-8:5
+PAC	5-8:5
+Adaptable System	5-8:5
+适应系统	5-8:5
+微内核	5-8:5
+Microkernel	5-8:5
+MVC	5-8:6
+Pipes and Filters	5-9:1
+管道和过滤器风格	5-9:1
+Layered Architeture	5-9:3
+层次架构风格	5-9:3
+3层	5-9:5
+3 Tiers	5-9:5
+表示层	5-9:5
+业务逻辑层	5-9:5
+数据访问层	5-9:5
+Design Pattern	5-9:3
+设计模式	5-9:6
+GoF	5-10:1
+Gang of Four	5-10:1
+外观模式	5-10:2
+Façade	5-10:2
+Bridge	5-10:3
+桥接模式	5-10:3
+Framework	5-11:2
+框架	5-11:2
+MVC框架	5-11:3
+ORM框架	5-11:3
+复合框架	5-11:3
+界面框架	5-11:3
+JSP Model II	5-11:5
+J2EE	5-11:6
+Struts	5-12:1
+SSH	5-12:2
+Spring	5-12:2
+Hibernate	5-12:2
+设计模型	6-1:3
+设计 定义	6.2-1:4
+分析 设计 比较	6.2-1:5
+设计 分析 比较	6.2-1:5
+面向对象设计	6.2-1:6
+单一职责原则	6.2-2:3
+SRP	6.2-2:3
+Single Responsibility Principle	6.2-2:3
+LSP	6.2-2:6
+Liskov替换原则	6.2-2:6
+DIP	6.2-3:2
+依赖倒置原则	6.2-3:2
+Dependence Inversion Principle	6.2-3:2
+ISP	6.2-3:5
+Interface Segregation Principle	6.2-3:5
+接口隔离原则	6.2-3:5
+OCP	6.2-4:3
+Open-Closed Principle	6.2-4:3
+开-闭原则	6.2-4:3
+Design Model	6.2-5:1
+设计模型	6.2-5:1
+包 定义	6.2-5:3
+Package	6.2-5:3
+包 依赖	6.2-5:4
+依赖 (包)	6.2-5:4
+Dependency (Package)	6.2-5:4
+类 相关	6.2-5:6
+包 可见性	6.2-6:2
+可见性 包	6.2-6:2
+封装	6.2-6:2
+Encapsulation	6.2-6:2
+粒度	6.2-6:3
+Granularity	6.2-6:3
+稳定性	6.2-6:3
+Stability	6.2-6:3
+REP	6.2-6:4
+Release - Reuse Equivalency Principle	6.2-6:4
+发布-重用等价原则	6.2-6:4
+CRP	6.2-6:5
+公共闭合原则	6.2-6:5
+Common Reuse Principle	6.2-6:5
+CCP	6.2-7:1
+Common Closure Principle	6.2-7:1
+公共重用原则	6.2-7:1
+ADP	6.2-7:2
+Acyclic Dependencies Principle	6.2-7:2
+非循环依赖原则	6.2-7:2
+Stable Dependencies Principle	6.2-7:4
+SDP	6.2-7:4
+稳定依赖原则	6.2-7:4
+Stable Abstractions Principle	6.2-7:6
+SAP	6.2-7:6
+稳定抽象原则	6.2-7:6
+Architecture	6.2-8:3
+架构 定义	6.2-8:3
+4+1 View	6.2-8:4
+4+1 视图	6.2-8:4
+Logic View	6.2-8:5
+逻辑视图	6.2-8:5
+Process View	6.2-8:6
+进程视图	6.2-8:6
+Implementation View	6.2-9:1
+实现视图	6.2-9:1
+Develepment View	6.2-9:1
+开发视图	6.2-9:1
+Deployment View	6.2-9:2
+部署视图	6.2-9:2
+Use - Case View	6.2-9:3
+用例视图	6.2-9:3
+Architectural Pattern	6.2-9:4
+架构模式	6.2-9:4
+Architectural Styles	6.2-9:4
+架构风格	6.2-9:4
+Layer	6.2-9:5
+分层	6.2-9:5
+Observer	6.2-11:1
+观察者模式	6.2-11:1
+分层	6.2-11:5
+Tier	6.2-11:5
+Layer	6.2-11:5
+Partitions	6.2-11:5
+N-Tier	6.2-12:3
+N层	6.2-12:3
+C/S	6.2-12:1
+3 tier	6.2-12:2
+3层	6.2-12:2
+MVC	6.2-12:4
+Model - View - Controller	6.2-12:4
+模型 - 视图 - 控制器	6.2-12:4
+Blackboard	6.2-12:4
+黑板模式	6.2-12:4
+Technical Memo	6.2-13:6
+Software Architecture Document	6.2-14:2
+SAD	6.2-14:2
+类	6.2-14:6
+子系统	6.2-14:6
+活动类	6.2-14:6
+接口	6.2-14:6
+class subsystem	6.2-14:6
+active class	6.2-14:6
+interface	6.2-14:6
+event	6.2-15:1
+signal	6.2-15:1
+事件	6.2-15:1
+信号	6.2-15:1
+Subsystem Design	6.2-15:3
+子系统设计	6.2-15:3
+子系统 包 比较	6.2-15:5
+包 子系统 比较	6.2-15:5
+接口	6.2-16:2
+子系统 准则	6.2-16:4
+子系统 职责	6.2-16:6
+依赖 (子系统)	6.2-16:6
+Dependency (Subsystem)	6.2-17:2
+Component 定义	6.2-17:5
+组件 定义	6.2-17:5
+Java EE	6.2-17:6
+Microsoft .NET	6.2-18:1
+.NET	6.2-18:1
+组件 UML	6.2-18:5
+Component UML	6.2-18:5
+Component Diagram	6.2-19:3
+构件图	6.2-19:3
+External View (Component)	6.2-19:4
+外部观点 (组件)	6.2-19:4
+Internal View (Component)	6.2-19:5
+内部观点 (组件)	6.2-19:5
+Interface	6.2-19:6
+可提供接口	6.2-19:6
+provided interface	6.2-19:6
+需求接口	6.2-19:6
+required interface	6.2-19:6
+连接埠	6.2-20:1
+Port (Component Diagram)	6.2-20:1
+Dependency (Component)	6.2-20:1
+依赖 (组件)	6.2-20:2
+组件内部结构	6.2-20:2
+Internal Structure	6.2-20:3
+Part	6.2-20:4
+组件内部组件	6.2-20:4
+Connector (Component Diagram)	6.2-20:5
+连接器 (组件图)	6.2-20:5
+Assembly Connector	6.2-20:6
+装配连接器	6.2-20:6
+Delegation Connector	6.2-21:1
+委托连接器	6.2-21:1
+组件与合成结构图	6.2-21:3
+Composite Structure Diagram	6.2-21:3
+Port (Composite Structure Diagram)	6.2-21:3
+Delegate (Composite Structure Diagram)	6.2-21:3
+Collaboration	6.2-21:6
+Boundary Classes	6.2-23:1
+边界类	6.2-23:1
+Entity Classes	6.2-23:2
+实体类	6.2-23:2
+Control Classes	6.2-23:3
+控制类	6.2-23:3
+Operation (Class)	6.2-23:4
+操作 (类)	6.2-23:4
+Class Operation	6.2-23:4
+Operation Signatures	6.2-23:5
+操作签名	6.2-23:5
+Visibility	6.2-24:1
+可见度	6.2-24:1
+Scope	6.2-24:3
+范围	6.2-24:3
+Method	6.2-24:6
+方法	6.2-24:6
+State	6.2-25:1
+状态	6.2-25:1
+Statechart	6.2-25:2
+状态图	6.2-25:2
+Initial state	6.2-25:3
+Final state	6.2-25:3
+初态	6.2-25:3
+终态	6.2-25:3
+Transition (State)	6.2-25:6
+Event	6.2-25:6
+Activity	6.2-26:1
+Action	6.2-26:1
+转移	6.2-25:6
+事件	6.2-25:6
+动作	6.2-26:1
+活动	6.2-26:1
+Attribute	6.2-27:1
+属性	6.2-27:1
+Derived Attributes	6.2-27:2
+衍生属性	6.2-27:2
+依赖 关联 比较	6.2-27:5
+Association Dependency	6.2-27:5
+关联 依赖 比较	6.2-27:5
+Dependency Association	6.2-27:5
+Permanent relationship	6.2-28:1
+Transient relationship	6.2-28:1
+持久关系	6.2-28:1
+瞬时关系	6.2-28:1
+依赖 (类)	6.2-28:1
+Dependency (Class)	6.2-28:1
+Association	6.2-28:2
+关联关系	6.2-28:2
+Aggregation	6.2-28:6
+聚合关系	6.2-28:6
+Composition	6.2-29:1
+合成关系	6.2-29:1
+Aggregation Composition 比较	6.2-29:1
+Composition Aggregation 比较	6.2-29:1
+合成 聚合 比较	6.2-29:1
+聚合 合成 比较	6.2-29:1
+Attribute Composition 比较	6.2-29:3
+Composition Attribute 比较	6.2-29:3
+属性 合成 关系	6.2-29:3
+合成 属性 关系	6.2-29:3
+Shared Aggregation	6.2-29:3
+Non-shared Aggregation	6.2-29:3
+共享聚集	6.2-29:3
+非共享聚集	6.2-29:3
+Navigability	6.2-29:5
+导航	6.2-29:5
+Association Class	6.2-29:6
+关联类	6.2-29:6
+Multiplicity	6.2-30:2
+多重度	6.2-30:2
+Parameterized Class	6.2-30:4
+参数化类	6.2-30:4
+Template	6.2-30:4
+模板	6.2-30:4
+State machine diagram	6.2-31:2
+状态机图	6.2-31:2
+State machine	6.2-31:3
+状态机	6.2-31:3
+Protocol state machine	6.2-31:3
+PSM	6.2-31:3
+协议状态机	6.2-31:3
+Event	6.2-31:3
+Behavioral state machines	6.2-31:3
+行为状态机	6.2-31:3
+Event	6.2-31:5
+事件	6.2-31:5
+call event	6.2-31:5
+change event	6.2-31:5
+signal event	6.2-31:5
+time event	6.2-31:5
+State	6.2-31:6
+状态	6.2-31:6
+simple state	6.2-31:6
+orthogonal state	6.2-31:6
+nonorthogonal state	6.2-31:6
+initial state	6.2-32:1
+final state	6.2-32:1
+terminate	6.2-32:1
+junction	6.2-32:1
+choice	6.2-32:1
+history state	6.2-32:1
+submachine state	6.2-32:2
+entry point	6.2-32:2
+exit point	6.2-32:2
+Transition (State)	6.2-32:3
+entry transition	6.2-32:3
+exit transition	6.2-32:3
+external transition	6.2-32:3
+internal transition	6.2-32:3
+Guard	6.2-32:4
+监护	6.2-32:4
+Nested State	6.2-32:5
+巢状状态	6.2-32:5
+Deployment View	6.2-33:3
+部署视图	6.2-33:3
+Node	6.2-33:6
+节点	6.2-33:6
+Connection	6.2-33:6
+连接	6.2-33:6
+Artifact	6.2-34:3
+物件	6.2-34:3
+Artifact Diagram	6.2-34:4
+制品图	6.2-34:4
+Forward Engineering	6.2-35:1
+正向工程	6.2-35:1
+Reverse Engineering	6.2-35:2
+逆向工程	6.2-35:2
+Round-Trip Engineering	6.2-35:2
+双向工程	6.2-35:2
+Code	6.2-35:6
+编码	6.2-35:6
+Test - Driven Development	6.2-36:3
+测试驱动开发	6.2-36:3
+TDD	6.2-36:3
+Refactoring	6.2-36:4
+重构	6.2-36:4

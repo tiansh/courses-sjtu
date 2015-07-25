@@ -1,0 +1,4 @@
+GOTOXY #4# #4#
+STON LASTOP$ GOODSID#
+CALL "vtm\5cgoods\5cloadg.vtm"
+CALL "vtm\5cgoods\5cshowgn.vtm"

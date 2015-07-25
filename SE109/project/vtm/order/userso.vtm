@@ -1,0 +1,27 @@
+CALL "vtm\5corder\5cshowo.vtm"
+
+IFN ORDERID# #0# userso-C:
+
+GOTOXY #8# #5#
+IFC ORDERR$ "*" userso-C:
+PRINTS "[C]取消该订单   "
+:userso-C:
+
+STON OUPRED$ OUPRED#
+
+GOTOXY #64# #21#
+IFN ORDERID# LASTOP# powsg-New:
+PRINTS "最新订单[BkSp]"
+GOTO powsg-New2:
+:powsg-New:
+PRINTS "      已为最新"
+:powsg-New2:
+GOTOXY #4# #21#
+STON OUPRED$ OUPRED#
+IFN OUPRED# #0# powsg-Pred:
+PRINTS "[Sp]上一条"
+GOTO powsg-Pred2:
+:powsg-Pred:
+PRINTS "无上一条"
+:powsg-Pred2:
+

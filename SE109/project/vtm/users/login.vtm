@@ -1,0 +1,50 @@
+:login-Input:
+COMMAND "CLS"
+GOTOXY #10# #1#
+PRINTS "用户登录"
+GOTOXY #4# #3#
+PRINTS "用户名："
+GOTOXY #4# #5#
+PRINTS "密码："
+GOTOXY #4# #7#
+PRINTS "返回[Esc]  注册[Ent]"
+GETC Chose!
+IFC Chose! "\1B" login-Finish:
+IFC Chose! "\0D" login-GFreg:
+GOTO login-GFreg2:
+:login-GFreg:
+GOTOF "vtm\5cusers\5creg.vtm"
+:login-GFreg2:
+GOTOXY #4# #7#
+PRINTS "                     "
+CTOS Chose! LUSERNAME$
+GOTOXY #13# #3#
+INPUTS LUSERNAME$ USER@USERNAME$LEN# Chose!
+GOTOXY #13# #5#
+LETS LPASSWORDI$ ""
+INPUTP LPASSWORDI$
+LETN LUSERID# #1#
+FIND USER@ LUSERNAME$ #1# LUSERID#
+IFP LUSERID# login-Check:
+GOTO login-Wrong:
+:login-Check:
+GETR USER@ LUSERID# LUSEREC$
+IFC LUSEREC$ "*" login-Del:
+RTOF USER@ LUSEREC$ #3# LPASSWORDL$
+IFPW LPASSWORDI$ LPASSWORDL$ login-Checked:
+:login-Wrong:
+GOTOXY #4# #7#
+PRINTS "用户名或密码错误   确定[Ent]"
+GOTO login-GetEnt:
+:login-Del:
+GOTOXY #4# #7#
+PRINTS "该用户已被删除     确定[Ent]"
+:login-GetEnt:
+GETC Chose!
+IFC Chose! "\0d" login-Input:
+GOTO login-GetEnt:
+:login-Checked:
+LETN USERID# LUSERID#
+LETN 特权模式# #0#
+CALL "vtm\5Cusers\5Cloadifm.vtm"
+:login-Finish:

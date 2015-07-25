@@ -1,0 +1,8 @@
+GOTOXY #4# #13#
+PRINTS "µÿ÷∑£∫  "
+:reg-6-Input:
+INPUTS REGADDR$ USER@ADDRESS$LEN# Chose!
+LENS REGADDR$ LEN#
+SUB LEN# #1# LEN#
+IFP LEN# reg-6-Input:
+FTOR USER@ RegRec$ #6# REGADDR$

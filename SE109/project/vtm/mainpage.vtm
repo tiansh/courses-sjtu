@@ -1,0 +1,20 @@
+; 判断用户类别的跳转页
+
+IFS USERTYPE$ "G" mainpage-Guest:
+IFS USERTYPE$ "A" mainpage-Admin:
+IFS USERTYPE$ "P" mainpage-Powered:
+IFS USERTYPE$ "U" mainpage-User:
+
+:mainpage-Guest:
+GOTOF "vtm\5Cmainpage\5Cguest.vtm"
+GOTO mainpage-Finish:
+:mainpage-Admin:
+GOTOF "vtm\5Cmainpage\5Cadmin.vtm"
+GOTO mainpage-Finish:
+:mainpage-Powered:
+GOTOF "vtm\5Cmainpage\5Cpowered.vtm"
+GOTO mainpage-Finish:
+:mainpage-User:
+GOTOF "vtm\5Cmainpage\5Cuser.vtm"
+GOTO mainpage-Finish:
+:mainpage-Finish:

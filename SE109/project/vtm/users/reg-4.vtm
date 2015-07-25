@@ -1,0 +1,33 @@
+' 性别
+GOTOXY #4# #9#
+IFC REGENDER$ "F" reg-4-Gender-F:
+IFC REGENDER$ "M" reg-4-Gender-M:
+PRINTS "性别：　男[M]　女[F]"
+:reg-4-Gender:
+GETC Chose!
+UPCASE Chose!
+IFC Chose! "F" reg-4-Gender-F:
+IFC Chose! "M" reg-4-Gender-M:
+IFC Chose! "\0d" reg-4-Gender-Finish:
+GOTO reg-4-Gender:
+
+:reg-4-Gender-F:
+GOTOXY #4# #9#
+PRINTS "性别：　女√ 　男[M]　　　　确定[Ent]"
+LETC REGENDER$ "F"
+GOTO reg-4-Gender:
+:reg-4-Gender-M:
+GOTOXY #4# #9#
+PRINTS "性别：　男√ 　女[F]　　　　确定[Ent]"
+LETC REGENDER$ "M"
+GOTO reg-4-Gender:
+:reg-4-Gender-Finish:
+IFC REGENDER$ "U" reg-4-Gender:
+FTOR USER@ RegRec$ #4# REGENDER$
+GOTOXY #4# #9#
+IFC REGENDER$ "M" reg-4-Gender-CM:
+PRINTS "性别：　女                              "
+GOTO reg-4-Gender-Next:
+:reg-4-Gender-CM:
+PRINTS "性别：　男                              "
+:reg-4-Gender-Next:

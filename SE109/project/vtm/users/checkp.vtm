@@ -1,0 +1,17 @@
+LETN CHECKP# #1#
+IFP 特权模式# checkp-Return:
+
+RTOF USER@ USERDATA$ #3# PASSWORDC$
+
+GOTOXY #10# #1#
+PRINTS "确认密码"
+GOTOXY #2# #5#
+PRINTS "密码：  "
+GOTOXY #13# #5#
+INPUTP PASSWORDS$
+IFPW PASSWORDC$ PASSWORDS$ checkp-Checked:
+LETN CHECKP# #0#
+GOTO checkp-Return:
+:checkp-Checked:
+:checkp-Return:
+

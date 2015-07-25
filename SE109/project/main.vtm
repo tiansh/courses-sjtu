@@ -1,0 +1,22 @@
+;载入数据并初始化必要变量
+
+COMMAND "CLS"
+PRINTS "正在载入数据，请稍后"
+LOAD USER@  "db\5Cuser.dbf"  "USER"
+PRINTS "…"
+LOAD GOODS@ "db\5Cgoods.dbf" "GOODS"
+PRINTS "…"
+LOAD ORDER@ "db\5Corder.dbf" "ORDER"
+PRINTS "…"
+SETI USER@ "db\5Cusername.ndx" USER@USERNAME$INDXE#
+CALL "vtm\5cusers\5cloging.vtm"
+COMMAND "CLS"
+CALL "vtm\5cmainpage.vtm"
+COMMAND "CLS"
+PRINTS "正在写回更改的数据"
+CLOSE USER@
+PRINTS "…"
+CLOSE GOODS@
+PRINTS "…"
+CLOSE ORDER@
+PRINTS "…\0A"

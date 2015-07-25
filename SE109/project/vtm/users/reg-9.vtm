@@ -1,0 +1,4 @@
+GOTOXY #4# #7#
+PRINTS "ÐÕÃû£º  "
+INPUTS RRNAME$ USER@RNAME$LEN# Chose!
+FTOR USER@ RegRec$ #10# RRNAME$

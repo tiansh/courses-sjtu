@@ -1,0 +1,67 @@
+:user-o-Reprint:
+STON LASTOP$ LASTOP#
+LETN ORDERID# LASTOP#
+
+:user-o-Reprint2:
+COMMAND "CLS"
+PRINTS "  买家"
+LENS USERNAME$ CorX#
+SUB CorX# #54# CorX#
+GOTOXY CorX# #0#
+PRINTS USERNAME$
+GOTOXY #55# #0# 
+PRINTS "| 个人信息[I] | 登出[O]"
+CALL "vtm\5ccopyri~1.vtm"
+GOTOXY #2# #2#
+PRINTS "[S]搜索："
+
+GOTOXY #4# #23#
+PRINTS "[N]最新商品"
+GOTOXY #4# #4#
+PRINTS "   我的订购："
+
+CALL "vtm\5corder\5cuserso.vtm"
+
+GOTOXY #0# #0#
+
+:user-o-Chose:
+GETC Chose!
+UPCASE Chose!
+IFC Chose!  "O"  user-o-Out:
+IFC Chose!  "I"  user-o-Ifm:
+IFC Chose!  "N"  user-o-o:
+IFC Chose!  "C"  user-o-RGoods:
+IFC Chose! "\08" user-o-New:
+IFC Chose!  " "  user-o-Old:
+GOTO user-o-Chose:
+
+
+:user-o-Exit:
+GOTO user-o-Return: 
+
+:user-o-Ifm:
+CALL "vtm\5Cusers\5Cifm.vtm"
+GOTOF "vtm\5Cmainpage.vtm"
+
+:user-o-Out:
+CALL "vtm\5Cusers\5Cloging.vtm"
+GOTOF "vtm\5Cmainpage.vtm"
+
+:user-o-New:
+IFN ORDERID# LASTOP# user-o-Chose:
+LETN ORDERID# LASTOP#
+GOTO user-o-Reprint2:
+:user-o-Old:
+STON OUPRED$ OUPRED#
+IFN OUPRED# #0# user-o-Chose:
+LETN ORDERID# OUPRED#
+GOTO user-o-Reprint2:
+
+:user-o-o:
+GOTOF "vtm\5Cmainpage\5Cuser\5Cuser-o.vtm"
+
+:user-o-RGoods:
+CALL "vtm\5Corder\5Creturn.vtm"
+GOTO user-o-Reprint2:
+
+:user-o-Return:

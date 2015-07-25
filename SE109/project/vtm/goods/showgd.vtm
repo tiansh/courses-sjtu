@@ -1,0 +1,50 @@
+IFP GOODSID# showgd-Show:
+LETN GOODSID# #0#
+GOTOXY #4# #6#
+PRINTS "暂无商品信息。"
+GOTO showgd-Return:
+:showgd-Show:
+CALL "vtm\5cgoods\5cloadg.vtm"
+GOTOXY #4# #6#
+PRINTS "商品名："
+PRINTS GNAME$ 
+GOTOXY #4# #7#
+PRINTS "分类：  "
+PRINTS GTYPE$
+GOTOXY #4# #8#
+PRINTS "产地：  "
+PRINTS GPLACE$
+GOTOXY #4# #9#
+PRINTS "型号：  "
+PRINTS GSIZE$
+GOTOXY #4# #10#
+PRINTS "厂家：  "
+PRINTS GFACT$
+GOTOXY #4# #11#
+PRINTS "生产日期： "
+PRINTD GDATE$
+GOTOXY #4# #12#
+PRINTS "价格：  "
+STON GPRICE$ GPRICE#
+PRINTR GPRICE#
+GOTOXY #4# #13#
+PRINTS "库存数："
+STON GAMOUNT$ GAMOUNT#
+IFP GAMOUNT# showgd-ap:
+PRINTS "(售罄)"
+GOTO showgd-az:
+:showgd-ap:
+PRINTN GAMOUNT#
+:showgd-az:
+GOTOXY #4# #14#
+PRINTS "备注：  "
+PRINTS GREMARK$
+GOTOXY #4# #15#
+PRINTS "卖家：  "
+PRINTS 2USERNAME$
+GOTOXY #4# #16#
+PRINTS "总评分："
+CALL "vtm\5cgoods\5cshows.vtm"
+
+
+:showgd-Return:

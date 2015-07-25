@@ -1,0 +1,9 @@
+GOTOXY #4# #17#
+IFC REGTYPE! "P" reg-7-P:
+PRINTS "¹Ø×¢£º  "
+GOTO reg-7-U:
+:reg-7-P:
+PRINTS "Ö÷Óª£º¡¡"
+:reg-7-U:
+INPUTS REGKW$ USER@KEYWORD$LEN# Chose!
+FTOR USER@ RegRec$ #7# REGKW$
